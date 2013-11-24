@@ -69,6 +69,23 @@ require './one_million'
 
       end
 
+      example 'multiples of 100' do
+
+        words = [100,200,300,400,500,600,700,800,900].map(&:in_words)
+        expect(words).to eq [ 
+                              "one hundred",
+                              "two hundred",
+                              "three hundred",
+                              "four hundred",
+                              "five hundred",
+                              "sic hundred",
+                              "seven hundred",
+                              "eight hundred",
+                              "nine hundred"
+                            ]
+
+      end
+
     end
 
   end
