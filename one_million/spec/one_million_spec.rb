@@ -1,4 +1,4 @@
-require './one_million'
+require './integer_converter'
 
 describe IntegerConverter do
 
