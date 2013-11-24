@@ -51,7 +51,7 @@ module IntegerConverter
   end
 
   def round_number_in_words
-    [div(magnitude).in_words, magnitude_in_words].join(' ')
+    [div(magnitude).in_words, magnitude_word].join(' ')
   end
 
   def unrounded_number_in_words
@@ -59,6 +59,10 @@ module IntegerConverter
   end
 
   def magnitude_in_words
+    (div(magnitude)*magnitude).in_words
+  end
+
+  def magnitude_word
     MAGNITUDE_MAP[magnitude]
   end
 
