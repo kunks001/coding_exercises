@@ -55,7 +55,11 @@ module IntegerConverter
   end
 
   def unrounded_number_in_words
-    [magnitude_in_words, remainder_in_words].join(' ')
+    [magnitude_in_words, remainder_in_words].join(separator)
+  end
+
+  def separator
+    magnitude == 100 ? ' and ' : ' '
   end
 
   def magnitude_in_words
@@ -67,7 +71,7 @@ module IntegerConverter
   end
 
   def remainder_in_words
-    modulo(10).in_words
+    modulo(magnitude).in_words
   end
 
 end
