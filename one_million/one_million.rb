@@ -35,7 +35,15 @@ module IntegerConverter
   end
 
   def in_multiple_words
-    (divmod(10)[0]*10).in_words + ' ' + divmod(10)[1].in_words
+    [tens_in_words, remainder_in_words].join(' ')
+  end
+
+  def tens_in_words
+    (div(10)*10).in_words
+  end
+
+  def remainder_in_words
+    modulo(10).in_words
   end
 
 end
