@@ -22,7 +22,7 @@ module IntegerConverter
                 19 => "nineteen"
               }
 
-  def in_words
+  def in_a_word
     WORDS_MAP[self]
   end
 

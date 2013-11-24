@@ -14,7 +14,7 @@ require './one_million'
 
         example 'first 19 integers' do
 
-          words = (1..19).to_a.map(&:in_words)
+          words = (1..19).to_a.map(&:in_a_word)
           expect(words).to eq [ "one",
                                 "two",
                                 "three",
