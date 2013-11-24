@@ -1,42 +1,42 @@
 require './one_million'
 
-  describe IntegerConverter do
+describe IntegerConverter do
 
-    before :all do
-      class Fixnum
-        prepend IntegerConverter
-      end
+  before :all do
+    class Fixnum
+      prepend IntegerConverter
     end
+  end
 
-    describe 'should output an integer value as words' do
+  describe 'should output an integer value as words' do
 
-      context 'from one to one million' do	
+    context 'from one to one million' do	
 
-        example 'first 19 integers' do
+      example 'first 19 integers' do
 
-          words = (1..19).to_a.map(&:in_words)
-          expect(words).to eq [ "one",
-                                "two",
-                                "three",
-                                "four",
-                                "five",
-                                "six",
-                                "seven",
-                                "eight",
-                                "nine",
-                                "ten",
-                                "eleven",
-                                "twelve",
-                                "thirteen",
-                                "fourteen",
-                                "fifteen",
-                                "sixteen",
-                                "seventeen",
-                                "eighteen",
-                                "nineteen"
-                              ]
+        words = (1..19).to_a.map(&:in_words)
+        expect(words).to eq [ "one",
+                              "two",
+                              "three",
+                              "four",
+                              "five",
+                              "six",
+                              "seven",
+                              "eight",
+                              "nine",
+                              "ten",
+                              "eleven",
+                              "twelve",
+                              "thirteen",
+                              "fourteen",
+                              "fifteen",
+                              "sixteen",
+                              "seventeen",
+                              "eighteen",
+                              "nineteen"
+                            ]
 
-        end
+      end
 
       example 'multiples of ten' do
 
@@ -127,6 +127,35 @@ require './one_million'
 
       end
 
+      example 'one million' do
+
+        expect(1000000.in_words).to eq "one million"
+
+      end
+
+    end
+
+    describe 'with the exceptions of' do
+
+      context 'zero or less' do
+
+        example 'zero' do
+          expect(0.in_words).to eq nil
+        end
+
+        example 'minus numbers' do
+          expect(-3.in_words).to eq nil
+        end
+
+      end
+
+      context 'more than one million' do
+
+        example '1000001' do
+          expect(1000001.in_words).to eq nil
+        end
+        
+      end
 
     end
 

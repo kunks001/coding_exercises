@@ -32,10 +32,15 @@ module IntegerConverter
 
   MAGNITUDE_MAP = {
                     100 => "hundred",
-                    1000 => "thousand"
+                    1000 => "thousand",
                   }
 
   def in_words
+    self > 0 && self <= 1000000 ? map_words : nil
+  end
+
+  def map_words
+    return "one million" if self == 1000000
     WORD_MAP[self] || in_multiple_words
   end
 
@@ -68,7 +73,11 @@ module IntegerConverter
   end
 
   def magnitude_in_words
-    (div(magnitude)*magnitude).in_words
+    round_down_to_multiple_of_magnitude.in_words
+  end
+
+  def round_down_to_multiple_of_magnitude
+    div(magnitude)*magnitude
   end
 
   def magnitude_word
@@ -78,5 +87,4 @@ module IntegerConverter
   def remainder_in_words
     modulo(magnitude).in_words
   end 
-
 end
