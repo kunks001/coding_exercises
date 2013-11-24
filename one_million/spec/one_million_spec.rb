@@ -86,6 +86,23 @@ require './one_million'
 
       end
 
+      example 'integers between 100 and 1000' do
+
+        words = [111,222,333,444,555,666,777,888,999].map(&:in_words)
+        expect(words).to eq [ 
+                              "one hundred and eleven",
+                              "two hundred and twenty two",
+                              "three hundred and thirty three",
+                              "four hundred and forty four",
+                              "five hundred and fifty five",
+                              "six hundred and sixty six",
+                              "seven hundred and seventy seven",
+                              "eight hundred and eighty eight",
+                              "nine hundred and ninety nine"
+                            ]
+
+      end
+
     end
 
   end
