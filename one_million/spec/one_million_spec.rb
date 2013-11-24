@@ -38,6 +38,20 @@ require './one_million'
 
         end
 
+      example 'multiples of ten' do
+        words = [20,30,40,50,60,70,80,90].map(&:in_a_word)
+        expect(words).to eq [ 
+                              "twenty",
+                              "thirty",
+                              "forty",
+                              "fifty",
+                              "sixty",
+                              "seventy",
+                              "eighty",
+                              "ninety",
+                            ]
+      end
+
     end
 
   end
