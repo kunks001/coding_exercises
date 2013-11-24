@@ -69,7 +69,11 @@ module IntegerConverter
   end
 
   def separator
-    magnitude == 100 ? ' and ' : ' '
+    magnitude == 100 || thousands_without_hundreds ? ' and ' : ' '
+  end
+
+  def thousands_without_hundreds
+    magnitude == 1000 && self % magnitude < 100
   end
 
   def magnitude_in_words

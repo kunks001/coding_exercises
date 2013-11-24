@@ -116,8 +116,10 @@ describe IntegerConverter do
 
       example 'any integer between 1000 and 999999' do
 
-        words = [1234,23456,345678,456789,999999].map(&:in_words)
+        words = [1001,1058,1234,23456,345678,456789,999999].map(&:in_words)
         expect(words).to eq [ 
+                              "one thousand and one",
+                              "one thousand and fifty eight",
                               "one thousand two hundred and thirty four",
                               "twenty three thousand four hundred and fifty six",
                               "three hundred and forty five thousand six hundred and seventy eight",
