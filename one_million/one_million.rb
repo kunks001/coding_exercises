@@ -30,8 +30,12 @@ module IntegerConverter
                 90 => 'ninety'
               }
 
-  def in_a_word
-    WORDS_MAP[self]
+  def in_words
+    WORDS_MAP[self] || in_multiple_words
+  end
+
+  def in_multiple_words
+    (divmod(10)[0]*10).in_words + ' ' + divmod(10)[1].in_words
   end
 
 end

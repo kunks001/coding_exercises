@@ -14,7 +14,7 @@ require './one_million'
 
         example 'first 19 integers' do
 
-          words = (1..19).to_a.map(&:in_a_word)
+          words = (1..19).to_a.map(&:in_words)
           expect(words).to eq [ "one",
                                 "two",
                                 "three",
@@ -39,7 +39,8 @@ require './one_million'
         end
 
       example 'multiples of ten' do
-        words = [20,30,40,50,60,70,80,90].map(&:in_a_word)
+
+        words = [20,30,40,50,60,70,80,90].map(&:in_words)
         expect(words).to eq [ 
                               "twenty",
                               "thirty",
@@ -50,6 +51,22 @@ require './one_million'
                               "eighty",
                               "ninety",
                             ]
+      end
+
+      example 'integers below one hundred that are not multiples of ten' do
+
+        words = [22,33,44,55,66,77,88,99].map(&:in_words)
+        expect(words).to eq [ 
+                              "twenty two",
+                              "thirty three",
+                              "forty four",
+                              "fifty five",
+                              "sixty six",
+                              "seventy seven",
+                              "eighty eight",
+                              "ninety nine",
+                            ]
+
       end
 
     end
