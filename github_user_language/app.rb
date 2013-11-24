@@ -3,24 +3,33 @@ require 'json'
 
 module GithubLanguage
 
-user = gets.chomp
+	def get_user
+		@user = gets.chomp
+	end
 
-response =  Net::HTTP.get_response(URI("https://api.github.com/users/#{user}/repos"))
+	def get_user_repos(user=@user)
+		response = Net::HTTP.get_response(URI("https://api.github.com/users/#{user}/repos"))
+		JSON.parse(response.body)
+	end
 
-user_array = JSON.parse(response.body)
+	def get_main_repo_languages
+		get_user_repos.map{ |repo| repo["language"] }
+	end
 
-repos = user_array.map{ |repo| repo["name"] }
+	def get_repo_names
+		get_user_repos.map{ |repo| repo["name"] }
+	end
 
-languages_array = []
+	def get_repo_language_breakdown(@user, repo)
+		repo_languages =  Net::HTTP.get_response(URI("https://api.github.com/repos/#{user}/#{repo}/languages"))
+		JSON.parse(repo_languages.body)
+	end
 
-repos.each do |repo|
-	repo_languages =  Net::HTTP.get_response(URI("https://api.github.com/repos/kunks001/#{repo}/languages"))
-	repo_languages_hash = JSON.parse(repo_languages.body)
-
-	languages_array << repo_languages_hash
-end
-
-puts languages_array
+	def return_repo_language_breakdown(user=@user, repo)
+		languages_array = []
+		repos.each { |repo| languages_array << get_repo_language_breakdown(user, repo) }
+		languages_array
+	end
 
 end
 
