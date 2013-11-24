@@ -4,7 +4,7 @@ require './one_million'
 
     before :all do
       class Fixnum
-        include IntegerConverter
+        prepend IntegerConverter
       end
     end
 
@@ -78,7 +78,7 @@ require './one_million'
                               "three hundred",
                               "four hundred",
                               "five hundred",
-                              "sic hundred",
+                              "six hundred",
                               "seven hundred",
                               "eight hundred",
                               "nine hundred"

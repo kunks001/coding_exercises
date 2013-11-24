@@ -30,16 +30,36 @@ module IntegerConverter
                 90 => 'ninety'
               }
 
+  MAGNITUDE_MAP = {
+                    100 => "hundred"
+                  }
+
   def in_words
     WORDS_MAP[self] || in_multiple_words
   end
 
   def in_multiple_words
-    [tens_in_words, remainder_in_words].join(' ')
+    multiple_of(magnitude) ? round_number_in_words : unrounded_number_in_words
   end
 
-  def tens_in_words
-    (div(10)*10).in_words
+  def multiple_of magnitude
+    modulo(magnitude) == 0
+  end
+
+  def magnitude
+    10 ** Math.log10(self).floor
+  end
+
+  def round_number_in_words
+    [div(magnitude).in_words, magnitude_in_words].join(' ')
+  end
+
+  def unrounded_number_in_words
+    [magnitude_in_words, remainder_in_words].join(' ')
+  end
+
+  def magnitude_in_words
+    MAGNITUDE_MAP[magnitude]
   end
 
   def remainder_in_words
