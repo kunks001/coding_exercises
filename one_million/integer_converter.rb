@@ -36,7 +36,11 @@ module IntegerConverter
                   }
 
   def in_words
-    self > 0 && self <= 1000000 ? map_words : nil
+    known_word ? map_words : nil
+  end
+
+  def known_word
+    self > 0 && self <= 1000000 ? true : false
   end
 
   def map_words
