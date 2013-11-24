@@ -1,6 +1,6 @@
 module IntegerConverter
 
-  WORDS_MAP = {
+  WORD_MAP = {
                 1 => 'one',
                 2 =>'two',
                 3 => 'three',
@@ -31,11 +31,12 @@ module IntegerConverter
               }
 
   MAGNITUDE_MAP = {
-                    100 => "hundred"
+                    100 => "hundred",
+                    1000 => "thousand"
                   }
 
   def in_words
-    WORDS_MAP[self] || in_multiple_words
+    WORD_MAP[self] || in_multiple_words
   end
 
   def in_multiple_words
@@ -47,6 +48,10 @@ module IntegerConverter
   end
 
   def magnitude
+    order_of_magnitude > 1000 ? 1000 : order_of_magnitude
+  end
+
+  def order_of_magnitude
     10 ** Math.log10(self).floor
   end
 
@@ -72,6 +77,6 @@ module IntegerConverter
 
   def remainder_in_words
     modulo(magnitude).in_words
-  end
+  end 
 
 end

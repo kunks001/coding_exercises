@@ -103,6 +103,31 @@ require './one_million'
 
       end
 
+      example 'multiples of 1000' do
+
+        words = [1000,20000,300000].map(&:in_words)
+        expect(words).to eq [ 
+                              "one thousand",
+                              "twenty thousand",
+                              "three hundred thousand",
+                            ]
+
+      end
+
+      example 'any integer between 1000 and 999999' do
+
+        words = [1234,23456,345678,456789,999999].map(&:in_words)
+        expect(words).to eq [ 
+                              "one thousand two hundred and thirty four",
+                              "twenty three thousand four hundred and fifty six",
+                              "three hundred and forty five thousand six hundred and seventy eight",
+                              "four hundred and fifty six thousand seven hundred and eighty nine",
+                              "nine hundred and ninety nine thousand nine hundred and ninety nine"
+                            ]
+
+      end
+
+
     end
 
   end
