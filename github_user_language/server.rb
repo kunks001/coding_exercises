@@ -4,9 +4,32 @@ require 'json'
 
 class Server < Sinatra::Base
 
+	get '/' do
+		erb :index
+	end
 
-
+	post '/' do
+		user = params[:user]
+		response =  Net::HTTP.get_response(URI("https://api.github.com/users/#{user}/repos"))
+		user_array = JSON.parse(response.body)
+	end
 end
+
+# user = gets.chomp
+
+
+# repos = user_array.map{ |repo| repo["name"] }
+
+# languages_array = []
+
+# repos.each do |repo|
+# 	repo_languages =  Net::HTTP.get_response(URI("https://api.github.com/repos/kunks001/#{repo}/languages"))
+# 	repo_languages_hash = JSON.parse(repo_languages.body)
+
+# 	languages_array << repo_languages_hash
+# end
+
+# puts languages_array
 
 
 	# def get_user
@@ -36,22 +59,3 @@ end
 	# 	repos.each { |repo| languages_array << get_repo_language_breakdown(user, repo) }
 	# 	languages_array
 	# end
-
-# user = gets.chomp
-
-# response =  Net::HTTP.get_response(URI("https://api.github.com/users/#{user}/repos"))
-
-# user_array = JSON.parse(response.body)
-
-# repos = user_array.map{ |repo| repo["name"] }
-
-# languages_array = []
-
-# repos.each do |repo|
-# 	repo_languages =  Net::HTTP.get_response(URI("https://api.github.com/repos/kunks001/#{repo}/languages"))
-# 	repo_languages_hash = JSON.parse(repo_languages.body)
-
-# 	languages_array << repo_languages_hash
-# end
-
-# puts languages_array

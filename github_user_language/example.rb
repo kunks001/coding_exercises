@@ -7,7 +7,7 @@ response =  Net::HTTP.get_response(URI("https://api.github.com/users/#{user}/rep
 
 user_array = JSON.parse(response.body)
 
-repos = user_array.map{ |repo| repo["language"] }
+repos = user_array.map{ |repo| repo["name"] }
 
 languages_array = []
 
