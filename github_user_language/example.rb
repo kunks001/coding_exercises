@@ -19,3 +19,8 @@ repos.each do |repo|
 end
 
 puts languages_array
+
+response = Net::HTTP.get_response(URI("https://api.github.com/users/#{user}/repos"))
+repos = JSON.parse(response.body)
+languages = repos.map {|repo| repo["language"] }.group_by{|lang| lang}.max_by{|lang| lang.last.length}[0]
+puts languages
