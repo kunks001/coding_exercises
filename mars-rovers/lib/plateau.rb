@@ -1,6 +1,6 @@
 class Plateau
 
-	def initialize(w=5)
+	def initialize(w=5, h=5)
 		@width = w
 	end
 
@@ -9,6 +9,6 @@ class Plateau
 	end
 
 	def height
-		5
+		@height
 	end
 end
