@@ -14,6 +14,9 @@ describe Plateau do
       expect(plateau.height).to eq 5
     end
 
+    it 'should accept an argument determining its width' do
+       expect(Plateau.new(3).width).to eq 3
+    end
   end
 
 end 
