@@ -21,6 +21,6 @@ class MarsRover
   end
 
   def move
-    @y_coord +=1 if direction == 'N'
+    direction == 'N' ? @y_coord += 1 : @y_coord -=1
   end
 end

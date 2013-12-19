@@ -79,5 +79,10 @@ describe MarsRover do
       expect{ marsRover.move }.to change { marsRover.y_coord }.by(1)
     end
 
+    it "should decrease its y-coordinate if facing south" do
+      marsRover=MarsRover.new(3,3,'S')
+      expect{ marsRover.move }.to change { marsRover.y_coord }.by(-1)
+    end
+
   end
 end
