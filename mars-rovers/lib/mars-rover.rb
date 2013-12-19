@@ -15,4 +15,8 @@ class MarsRover
   def turn_right
     @direction = Direction.right_of(direction)
   end
+
+  def turn_left
+    @direction = Direction.left_of(direction)
+  end
 end

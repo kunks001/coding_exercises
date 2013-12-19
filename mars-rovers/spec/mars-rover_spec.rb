@@ -44,4 +44,31 @@ describe MarsRover do
       expect(marsRover.direction).to eq 'N'
     end
   end
+
+  context 'when turning left' do
+
+    it "should start facing north, end up facing west" do
+      marsRover=MarsRover.new(3,3,'N')
+      marsRover.turn_left
+      expect(marsRover.direction).to eq 'W'
+    end
+
+    it "should start facing west, end up facing south" do
+      marsRover=MarsRover.new(3,3,'W')
+      marsRover.turn_left
+      expect(marsRover.direction).to eq 'S'
+    end
+
+    it "should start facing south, end up facing east" do
+      marsRover=MarsRover.new(3,3,'S')
+      marsRover.turn_left
+      expect(marsRover.direction).to eq 'E'
+    end
+
+    it "should start facing east, end up facing north" do
+      marsRover=MarsRover.new(3,3,'E')
+      marsRover.turn_left
+      expect(marsRover.direction).to eq 'N'
+    end
+  end
 end
