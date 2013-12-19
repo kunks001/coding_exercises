@@ -3,7 +3,7 @@ class Direction
 	class << self
 
 		def right_of(direction)
-			'E' if direction = 'N'
+			direction == 'N' ? 'E' : 'S'
 		end
 	end
 end
