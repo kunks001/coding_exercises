@@ -71,4 +71,13 @@ describe MarsRover do
       expect(marsRover.direction).to eq 'N'
     end
   end
+
+  context "when moving" do
+
+    it "should increase its y-coordinate if facing north" do
+      marsRover=MarsRover.new(3,3,'N')
+      expect{ marsRover.move }.to change { marsRover.y_coord }.by(1)
+    end
+
+  end
 end
