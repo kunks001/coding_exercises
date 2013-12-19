@@ -3,8 +3,8 @@ require './lib/direction'
 class MarsRover
 
   attr_reader :x_coord
-  attr_accessor :y_coord
-  attr_accessor :direction
+  attr_reader :y_coord
+  attr_reader :direction
 
   def initialize(x=3,y=3,d='N')
     @x_coord=x
