@@ -9,6 +9,8 @@ class Direction
 				'S'
 			elsif direction == 'S'
 				'W'
+			elsif direction == 'W'
+				'N'
 			end
 		end
 	end

@@ -14,5 +14,9 @@ describe Direction do
     it 'should know west is right of south' do
       expect(Direction.right_of('E')).to eq 'S'
     end
+
+    it 'should know north is right of west' do
+      expect(Direction.right_of('E')).to eq 'S'
+    end
   end
 end
