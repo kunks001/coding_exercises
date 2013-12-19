@@ -13,5 +13,17 @@ class Direction
 				'N'
 			end
 		end
+
+		def left_of(direction)
+			if direction == 'N'
+				'W'
+			elsif direction == 'W'
+				'S'
+			elsif direction == 'S'
+				'E'
+			elsif direction == 'E'
+				'N'
+			end
+		end
 	end
 end
