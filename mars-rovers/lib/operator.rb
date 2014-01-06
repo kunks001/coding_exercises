@@ -1,19 +1,19 @@
 class Operator
 
-	attr_reader :commands
+	# attr_reader :commands
 
-	def initialize(commands,rover)
-		@commands = commands
-		@rover = rover
-	end
+	# def initialize
+		# @commands = commands
+		# @rover = rover
+	# end
 
-	def send_instructions
-		commands.chars.each do |char|
+	def send_instructions(instructions,rover)
+		instructions.chars.each do |instruction|
 		# case commands
-			case char
-				when 'M' then @rover.move
-				when 'L' then @rover.turn_left
-				when 'R' then @rover.turn_right
+			case instruction
+				when 'M' then rover.move
+				when 'L' then rover.turn_left
+				when 'R' then rover.turn_right
 			end
 		end
 	end
