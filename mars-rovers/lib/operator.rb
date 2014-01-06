@@ -8,10 +8,13 @@ class Operator
 	end
 
 	def send_instructions
-		case commands
-			when 'M' then @rover.move
-			when 'L' then @rover.turn_left
-			when 'R' then @rover.turn_right
+		commands.chars.each do |char|
+		# case commands
+			case char
+				when 'M' then @rover.move
+				when 'L' then @rover.turn_left
+				when 'R' then @rover.turn_right
+			end
 		end
 	end
 end

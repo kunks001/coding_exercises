@@ -24,9 +24,15 @@ describe Operator do
 			expect(rover).to receive(:turn_right)
 			operator.send_instructions
 		end
-	end
 
-	# context 'should be able to interpret multiple instructions' do
-	# end
+		it 'follow multiple instructions' do
+			operator = Operator.new('RMRMLML',rover)
+			expect(rover).to receive(:move).exactly(3).times
+			expect(rover).to receive(:turn_left).exactly(2).times
+			expect(rover).to receive(:turn_right).exactly(2).times
+			operator.send_instructions
+		end
+
+	end
 
 end
